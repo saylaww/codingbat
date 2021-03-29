@@ -44,7 +44,7 @@ public class LanguageController {
         return ResponseEntity.status(response.isSuccess() ? HttpStatus.CREATED : HttpStatus.CONFLICT).body(response);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<Response> updateLanguage(@PathVariable Integer id, @Valid @RequestBody LanguageDto languageDto){
         Response response = languageService.update(id, languageDto);
         return ResponseEntity.status(response.isSuccess()?HttpStatus.ACCEPTED:HttpStatus.CONFLICT).body(response);
